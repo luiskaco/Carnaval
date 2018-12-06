@@ -75,7 +75,7 @@
 
 
 
-@section('seccion_a')
+@section('content')
 
 
 <div id="fh5co-course-categories" style="background-image: url({{url('carnaval/images/bg/st-3.png')}});">

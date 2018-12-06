@@ -2,9 +2,9 @@
 @inject('request', 'Illuminate\Http\Request')
 @extends('layouts.app')
 
-@section('content')
+@section('content_a')
     <!-- Main content -->
-    <section class="content">
+    <section class="content"> holagit
       <div class="row" >
         <!-- left column -->
 
