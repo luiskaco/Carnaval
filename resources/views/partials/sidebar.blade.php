@@ -6,47 +6,68 @@
         <ul class="sidebar-menu">
 
             <li class="{{ $request->segment(1) == 'home' ? 'active' : '' }}">
-                <a href="{{ url('/') }}">
+                <a href="{{ url('/admin/home') }}">
                     <i class="fa fa-wrench"></i>
                     <span class="title">@lang('global.app_dashboard')</span>
                 </a>
             </li>
 
-            <li class="{{ $request->segment(1) == 'comunicados' ? 'active' : '' }}">
-                <a href="{{ route('admin.comunicados.index') }}">
-                    <i class="glyphicon glyphicon-paperclip"></i>
-                    <span class="title">Comunicados</span>
+             <li class="treeview">
+                <a href="#">
+                    <i class="fa fa-users"></i>
+                    <span class="title">Prensa</span>
+                    <span class="pull-right-container">
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </span>
                 </a>
-            </li>
+                <ul class="treeview-menu">
 
-            <li class="{{ $request->segment(1) == 'entrevista' ? 'active' : '' }}">
-                <a href="{{ route('admin.entrevista.index') }}">
-                    <i class="glyphicon glyphicon-list-alt"></i>
-                    <span class="title">Entrevista</span>
+                    <li class="{{ $request->segment(2) == 'entrevista' ? 'active active-sub' : '' }}">
+                        <a href="{{ route('admin.entrevista.index') }}">
+                            <i class="fa fa-briefcase"></i>
+                            <span class="title">Entrevista</span>
+                        </a>
+                    </li>
+                     <li class="{{ $request->segment(2) == 'comunicados' ? 'active active-sub' : '' }}">
+                        <a href="{{ route('admin.comunicados.index') }}">
+                            <i class="fa fa-briefcase"></i>
+                            <span class="title">Comunicados</span>
+                        </a>
+                    </li>
+                    <li class="{{ $request->segment(2) == 'noticias' ? 'active active-sub' : '' }}">
+                        <a href="{{ route('admin.noticias.index') }}">
+                             <i class="fa fa-wrench"></i>
+                             <span class="title">Noticias</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li class="treeview">
+                <a href="#">
+                    <i class="fa fa-users"></i>
+                    <span class="title">Multimedia</span>
+                    <span class="pull-right-container">
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </span>
                 </a>
-            </li>
+                <ul class="treeview-menu">
+                   <li class="{{ $request->segment(2) == 'fotografia' ? 'active active-sub' : '' }}">
+                        <a href="{{ route('admin.fotografia.index') }}">
+                            <i class="fa fa-briefcase"></i>
+                            <span class="title">
+                                Fotografía
+                            </span>
+                        </a>
+                    </li>
+                    <li class="{{ $request->segment(1) == 'videos' ? 'active active-sub' : '' }}">
+                        <a href="{{ route('admin.videos.index') }}">
+                           <i class="glyphicon glyphicon-expand"></i>
+                            <span class="title">Videos</span>
+                        </a>
+                    </li>
 
-            <li class="{{ $request->segment(1) == 'fotografia' ? 'active' : '' }}">
-                <a href="{{ route('admin.fotografia.index') }}">
-                    <i class="fa fa-photo"></i>
-                    <span class="title">Fotografía</span>
-                </a>
+                </ul>
             </li>
-
-            <li class="{{ $request->segment(1) == 'noticias' ? 'active' : '' }}">
-                <a href="{{ route('admin.noticias.index') }}">
-                    <i class="fa fa-wrench"></i>
-                    <span class="title">Noticias</span>
-                </a>
-            </li>
-
-            <li class="{{ $request->segment(1) == 'videos' ? 'active' : '' }}">
-                <a href="{{ route('admin.videos.index') }}">
-                    <i class="glyphicon glyphicon-expand"></i>
-                    <span class="title">Videos</span>
-                </a>
-            </li>
-
 
 
             @can('users_manage')

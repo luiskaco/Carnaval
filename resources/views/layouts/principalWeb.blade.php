@@ -12,7 +12,6 @@
     @yield('banner')
     @yield('content')
 
-
     @include('partials.crono')
 
     @yield('seccion_b');
