@@ -4,7 +4,7 @@
 
 @section('content_a')
     <!-- Main content -->
-    <section class="content"> holagit
+    <section class="content">
       <div class="row" >
         <!-- left column -->
 
