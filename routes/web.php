@@ -85,4 +85,7 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'admin', 'as' => 'admin.'], 
 	Route::resource('entrevista', 'Admin\EntrevistaController');
 	Route::resource('fotografia', 'Admin\FotografiaController');
 	Route::resource('videos', 'Admin\VideosController');
+	Route::resource('noticiassearch', 'Admin\NoticasSearchController');
+	Route::resource('comunicadosearch', 'Admin\ComunicadoSearchController');
+
 });

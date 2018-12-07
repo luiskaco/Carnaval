@@ -3,7 +3,7 @@
 <aside class="main-sidebar">
     <!-- sidebar: style can be found in sidebar.less -->
     <section class="sidebar">
-        <ul class="sidebar-menu">
+        <ul class="sidebar-menu" data-widget="tree">
 
             <li class="{{ $request->segment(1) == 'home' ? 'active' : '' }}">
                 <a href="{{ url('/admin/home') }}">
@@ -15,7 +15,7 @@
              <li class="treeview">
                 <a href="#">
                     <i class="fa fa-users"></i>
-                    <span class="title">Prensa</span>
+                    <span class="title">Edición de Prensa</span>
                     <span class="pull-right-container">
                         <i class="fa fa-angle-left pull-right"></i>
                     </span>
@@ -28,20 +28,61 @@
                             <span class="title">Entrevista</span>
                         </a>
                     </li>
-                     <li class="{{ $request->segment(2) == 'comunicados' ? 'active active-sub' : '' }}">
-                        <a href="{{ route('admin.comunicados.index') }}">
-                            <i class="fa fa-briefcase"></i>
-                            <span class="title">Comunicados</span>
+
+                    <li class="treeview">
+                        <a href="#">
+                            <i class="fa fa-users"></i>
+                            <span class="title">Comunicado</span>
+                            <span class="pull-right-container">
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </span>
                         </a>
+                        <ul class="treeview-menu">
+
+                            <li class="{{ $request->segment(2) == 'comunicados' ? 'active active-sub' : '' }}">
+                                <a href="{{ route('admin.comunicados.index') }}">
+                                    <i class="fa fa-briefcase"></i>
+                                    <span class="title">Agregar nuevo Comunicado</span>
+                                </a>
+                            </li>
+                             <li class="{{ $request->segment(2) == 'comunicadosearch' ? 'active active-sub' : '' }}">
+                                <a href="{{ route('admin.comunicadosearch.index') }}">
+                                    <i class="fa fa-briefcase"></i>
+                                    <span class="title">Comunicados Registrados</span>
+                                </a>
+                            </li>
+                        </ul>
                     </li>
-                    <li class="{{ $request->segment(2) == 'noticias' ? 'active active-sub' : '' }}">
-                        <a href="{{ route('admin.noticias.index') }}">
-                             <i class="fa fa-wrench"></i>
-                             <span class="title">Noticias</span>
+
+
+
+
+                    <li class="treeview">
+                        <a href="#">
+                            <i class="fa fa-users"></i>
+                            <span class="title">Noticias</span>
+                            <span class="pull-right-container">
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </span>
                         </a>
+                        <ul class="treeview-menu">
+
+                            <li class="{{ $request->segment(2) == 'noticias' ? 'active active-sub' : '' }}">
+                                <a href="{{ route('admin.noticias.index') }}">
+                                    <i class="fa fa-briefcase"></i>
+                                    <span class="title">Agregar nueva noticia</span>
+                                </a>
+                            </li>
+                             <li class="{{ $request->segment(2) == 'noticiassearch' ? 'active active-sub' : '' }}">
+                                <a href="{{ route('admin.noticiassearch.index') }}">
+                                    <i class="fa fa-briefcase"></i>
+                                    <span class="title">Noticias Ingresadas</span>
+                                </a>
+                            </li>
+                        </ul>
                     </li>
-                </ul>
-            </li>
+                        </ul>
+                    </li>
             <li class="treeview">
                 <a href="#">
                     <i class="fa fa-users"></i>
