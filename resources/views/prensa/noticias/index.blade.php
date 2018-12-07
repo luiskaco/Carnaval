@@ -4,7 +4,7 @@
 
 @section('content')
     <!-- Main content -->
-    <section class="content">hola git
+    <section class="content">
       <div class="row" >
         <!-- left column -->
 
