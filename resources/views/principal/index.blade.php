@@ -79,9 +79,6 @@
 
 
 <div id="fh5co-course-categories" style="background-image: url({{url('carnaval/images/bg/st-3.png')}});">
-
-
-
         <div class="container">
             <div class="row animate-box">
 
@@ -121,7 +118,7 @@
 
     @endsection
     @section('seccion_b')
-    <div id="fh5co-course" style="background-image: url({{url('carnaval/images/bg/st-4.png')}})">
+    <div id="fh5co-course" style="background-image: url({{url('carnaval/images/bg/sft-4.png')}})">
         <div class="container">
             <div class="row animate-box">
                 <div class="col-md-6 col-md-offset-3 text-center fh5co-heading">
@@ -130,90 +127,85 @@
             </div>
             <div class="row">
                 <a href="{{ route('peru.puestaEscena.tramas') }}">
-                <div class="col-md-4 animate-box text-center">
-                    <div class="staff">
-                       <h2> <img src="{{url('carnaval/images/text/trama.png')}}" class="img-responsive shake-slow"  width="140px" height="120px" ></h2>
-                        <div class="staff-img" style="background-image: url({{ url('carnaval/images/pag/puesta/1-P.png') }})">
-                            <ul class="fh5co-social">
-                                <li><i class="fa fa-link"></i></li>
-                            </ul>
+                    <div class="col-md-4 animate-box text-center">
+                        <div class="staff">
+                           <h2> <img src="{{url('carnaval/images/text/trama.png')}}" class="img-responsive shake-slow"  width="140px" height="120px" ></h2>
+                            <div class="staff-img" style="background-image: url({{ url('carnaval/images/pag/puesta/1-P.png') }})">
+                                <ul class="fh5co-social">
+                                    <li><i class="fa fa-link"></i></li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
-                </div>
                 </a>
-
                 <a href="{{ route('peru.puestaEscena.vestuario') }}">
-                <div class="col-md-4 animate-box text-center ">
-                    <div class="staff">
-                         <h2><img src="{{url('carnaval/images/text/vestuario.png')}}" class="img-responsive shake-slow"  width="140px" height="100px" ></h2>
-                        <div class="staff-img" style="background-image: url({{ url('carnaval/images/pag/puesta/3-P.png') }})">
-                            <ul class="fh5co-social">
-                                <li><i class="fa fa-link"></i></li>
+                    <div class="col-md-4 animate-box text-center ">
+                        <div class="staff">
+                             <h2><img src="{{url('carnaval/images/text/vestuario.png')}}" class="img-responsive shake-slow"  width="140px" height="100px" ></h2>
+                            <div class="staff-img" style="background-image: url({{ url('carnaval/images/pag/puesta/3-P.png') }})">
+                                <ul class="fh5co-social">
+                                    <li><i class="fa fa-link"></i></li>
 
-                            </ul>
+                                </ul>
+                            </div>
                         </div>
                     </div>
-                </div>
                 </a>
                 <a href="{{ route('peru.puestaEscena.carnavalesco') }}">
-                <div class="col-md-4 animate-box text-center">
-                    <div class="staff">
-                        <h2><img src="{{url('carnaval/images/text/carnavalescos.png')}}" class="img-responsive shake-slow"  width="145px" height="105px" ></h2>
-                        <div class="staff-img" style="background-image: url({{ url('carnaval/images/pag/puesta/2-P.png') }})">
-                            <ul class="fh5co-social">
-                                <li><i class="fa fa-link"></i></li>
+                    <div class="col-md-4 animate-box text-center">
+                        <div class="staff">
+                            <h2><img src="{{url('carnaval/images/text/carnavalescos.png')}}" class="img-responsive shake-slow"  width="145px" height="105px" ></h2>
+                            <div class="staff-img" style="background-image: url({{ url('carnaval/images/pag/puesta/2-P.png') }})">
+                                <ul class="fh5co-social">
+                                    <li><i class="fa fa-link"></i></li>
 
-                            </ul>
+                                </ul>
+                            </div>
                         </div>
                     </div>
-                </div>
+                </a>
             </div>
-            </a>
             <div class="row">
                 <a href="{{ route('peru.puestaEscena.carros') }}">
-                 <div class=" col-md-4 animate-box text-center">
-                    <div class="staff">
-                        <h2><img src="{{url('carnaval/images/text/carros-alegóricos.png')}}" class="img-responsive shake-slow"  width="200px" height="140px" ></h2>
-                        <div class="staff-img" style="background-image: url({{ url('carnaval/images/pag/puesta/5-P.png') }})">
-                            <ul class="fh5co-social">
-                                <li><i class="fa fa-link"></i></li>
+                     <div class=" col-md-4 animate-box text-center">
+                        <div class="staff">
+                            <h2><img src="{{url('carnaval/images/text/carros-alegóricos.png')}}" class="img-responsive shake-slow"  width="200px" height="140px" ></h2>
+                            <div class="staff-img" style="background-image: url({{ url('carnaval/images/pag/puesta/5-P.png') }})">
+                                <ul class="fh5co-social">
+                                    <li><i class="fa fa-link"></i></li>
 
-                            </ul>
+                                </ul>
+                            </div>
                         </div>
                     </div>
-                </div>
-                </a>
-                <a href="{{ route('peru.puestaEscena.musica') }}">
-                 <div class="col-md-4 animate-box text-center">
-                    <div class="staff">
-                         <h2><img src="{{url('carnaval/images/text/musica_2.png')}}" class="img-responsive shake-slow"  width="140px" height="100px" ></h2>
-                        <div class="staff-img" style="background-image: url({{ url('carnaval/images/pag/puesta/6-P.png') }})">
-                            <ul class="fh5co-social">
-                                <li><i class="fa fa-link"></i></li>
+                    </a>
+                    <a href="{{ route('peru.puestaEscena.musica') }}">
+                     <div class="col-md-4 animate-box text-center">
+                        <div class="staff">
+                             <h2><img src="{{url('carnaval/images/text/musica_2.png')}}" class="img-responsive shake-slow"  width="140px" height="100px" ></h2>
+                            <div class="staff-img" style="background-image: url({{ url('carnaval/images/pag/puesta/6-P.png') }})">
+                                <ul class="fh5co-social">
+                                    <li><i class="fa fa-link"></i></li>
 
-                            </ul>
+                                </ul>
+                            </div>
                         </div>
                     </div>
-                </div>
-                </a>
-                <a href="{{ route('peru.puestaEscena.coreografo') }}">
-                  <div class="col-md-4 animate-box text-center">
-                    <div class="staff">
-                         <h2><img src="{{url('carnaval/images/text/coreógrafo.png')}}" class="img-responsive shake-slow"  width="140px" height="100px" ></h2>
-                        <div class="staff-img" style="background-image: url({{ url('carnaval/images/pag/puesta/p-7.jpg') }})">
-                            <ul class="fh5co-social">
-                                <li><i class="fa fa-link"></i></li>
+                    </a>
+                    <a href="{{ route('peru.puestaEscena.coreografo') }}">
+                      <div class="col-md-4 animate-box text-center">
+                        <div class="staff">
+                             <h2><img src="{{url('carnaval/images/text/coreógrafo.png')}}" class="img-responsive shake-slow"  width="140px" height="100px" ></h2>
+                            <div class="staff-img" style="background-image: url({{ url('carnaval/images/pag/puesta/p-7.jpg') }})">
+                                <ul class="fh5co-social">
+                                    <li><i class="fa fa-link"></i></li>
 
-                            </ul>
+                                </ul>
+                            </div>
                         </div>
                     </div>
-                </div>
                 </a>
-
-            </div>
-
-
-            </div>
+                </div>
         </div>
     </div>
 
@@ -228,8 +220,8 @@
             <div class="col-md-8 col-md-offset-2 animate-box">
                 <div class="date-counter text-center">
 
-                 <!--<h2><img src="{{url('carnaval/images/text/galeria.png')}}" class="img-responsive shake-slow"  ></h2>-->
-                 <br>
+
+                   <br>
                    <br>
                    <br>
                    <br>
@@ -240,87 +232,6 @@
         </div>
     </div>
 
-
-<!--
-
-    <div id="fh5co-blog" style="background-image: url({{url('carnaval/images/bg/st-5.png')}})">
-        <div class="overlay"></div>
-        <div class="container">
-            <div class="row animate-box">
-                <div class="col-md-6 col-md-offset-3 text-center fh5co-heading">
-                        <h2><img src="{{url('carnaval/images/text/galeria.png')}}" class="img-responsive shake-slow"  ></h2>
-                </div>
-            </div>
-            <div class="row">
-
-                <div class="col-md-10 col-md-offset-1">
-
-                    <div class="row animate-box">
-
-                                 <div class="owl-carousel owl-carousel-fullwidt animate-box">
-                                   <div class="item  ">
-
-                                            <a href="{{url('carnaval/images/carousel/1.png')}}" data-toggle="lightbox" data-gallery="example-gallery">
-                                                 <img class="img-responsive img-thumbnail bounce-in" src="{{url('carnaval/images/carousel/1.png')}}" >
-                                            </a>
-
-
-                                    </div>
-                                  <div class="item ">
-
-                                            <a href="{{url('carnaval/images/carousel/2.png')}}" data-toggle="lightbox" data-gallery="example-gallery">
-                                                 <img class="img-responsive img-thumbnail bounce-in" src="{{url('carnaval/images/carousel/2.png')}}" alt="" width="">
-                                            </a>
-
-
-                                    </div>
-                                  <div class="item ">
-
-                                            <a href="{{url('carnaval/images/carousel/3.png')}}" data-toggle="lightbox" data-gallery="example-gallery">
-                                                 <img class="img-responsive img-thumbnail bounce-in" src="{{url('carnaval/images/carousel/3.png')}}" alt="" width="">
-                                            </a>
-
-                                                                         </div>
-                                  <div class="item ">
-                                            <a href="{{url('carnaval/images/carousel/4.png')}}" data-toggle="lightbox" data-gallery="example-gallery">
-                                                 <img class="img-responsive img-thumbnail bounce-in" src="{{url('carnaval/images/carousel/4.png')}}" alt="" width="">
-                                            </a>
-                                    </div>
-                                 <div class="item ">
-                                            <a href="{{url('carnaval/images/carousel/5.png')}}" data-toggle="lightbox" data-gallery="example-gallery">
-                                                 <img class="img-responsive img-thumbnail bounce-in" src="{{url('carnaval/images/carousel/5.png')}}" alt="" width="">
-                                            </a>
-                                    </div>
-                                  <div class="item ">
-                                            <a href="{{url('carnaval/images/carousel/6.png')}}" data-toggle="lightbox" data-gallery="example-gallery">
-                                                 <img class="img-responsive img-thumbnail bounce-in" src="{{url('carnaval/images/carousel/6.png')}}" alt="" width="">
-                                            </a>
-                                    </div>
-                                    <div class="item ">
-                                            <a href="{{url('carnaval/images/carousel/1.png')}}" data-toggle="lightbox" data-gallery="example-gallery">
-                                                 <img class="img-responsive img-thumbnail bounce-in" src="{{url('carnaval/images/carousel/1.png')}}" alt="" width="">
-                                            </a>
-                                    </div>
-                                    <div class="item ">
-                                            <a href="{{url('carnaval/images/carousel/8.png')}}" data-toggle="lightbox" data-gallery="example-gallery">
-                                                 <img class="img-responsive bounce-in" src="{{url('carnaval/images/carousel/8.png')}}" alt="" width="">
-                                            </a>
-                                    </div>
-
-
-                                </div>
-
-                        </div>
-
-                          <a class="right carousel-control customNextBtn animate-box"  >›</a>
-
-                           <a class="left carousel-control customPrevBtn animate-box"  >‹</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
--->
 
 
 

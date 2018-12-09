@@ -14,9 +14,9 @@
 
     @include('partials.crono')
 
-    @yield('seccion_b');
-    @yield('seccion_c');
-    @yield('seccion_d');
+    @yield('seccion_b')
+    @yield('seccion_c')
+    @yield('seccion_d')
 
 
     @include('partials.footer')
