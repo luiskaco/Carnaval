@@ -15,6 +15,7 @@ class CreateImagenDepotsTable extends Migration {
 			$table->increments('id');
 			$table->text('path');
 			$table->string('slug')->unique();
+			// 0 : imagen , 1 : video
 			$table->integer('type_id');
 			$table->timestamps();
 			$table->integer('status')->default(0);

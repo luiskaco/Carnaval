@@ -1,18 +1,19 @@
 
 @inject('request', 'Illuminate\Http\Request')
+
 @extends('layouts.app')
 
 @section('content')
+    @include('errors.request')
+    @include('errors.flash')
     <!-- Main content -->
     <section class="content">
 
         <!-- left column -->
-
-
               <!-- Formulario -->
               <div class="box box-primary">
                     <div class="box-header with-border">
-                      <form class="contact100-form validate-form" enctype="multipart/form-data" action="{{ route('admin.fotografia.store') }}  " method="post"  id="avatarForm">
+                      <form class="contact100-form validate-form"  enctype="multipart/form-data" action="{{ route('admin.fotografia.store') }} " method="post"  id="avatarForm">
                         <h3 class="box-title" align="center">Agregar Nueva Fotografia</h3>
                         <hr>
                       <div class="wrap-input100 bg1 ">
@@ -102,31 +103,16 @@
     $('#imgA').css('display','none');
     $('#urlA').css('display','block');
    });
+
+
+   $("#destiny").hide(7000);
+
   </script>
 
 
 
 
-<script type="text/javascript">
 
-
-
-    $(function () {
-        //Enviar el formulario via FormData
-            var data = new FormData($('#avatarForm')[0]);
-            console.log(data);
-
-            $.ajax( {
-                url: {{ route('admin.noticias.store') }},
-                type: 'POST',
-                data: data,
-                processData: false,
-                contentType: false
-            }).done(function(datos){
-                console.log(datos);
-            });
-    });
-  </script>
 
 
 

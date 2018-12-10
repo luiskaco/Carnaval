@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class FotografiaController extends Controller {
 	/**
@@ -32,32 +33,29 @@ class FotografiaController extends Controller {
 	 */
 	public function store(Request $request) {
 		//
-
 		$file = $request->file('file');
+		if ($file->guessExtension() == 'jpeg' || $file->guessExtension() == 'png') {
+			$slug = str_random(180);
+			$id = \DB::table('imagen_depots')->where('slug', $slug)->get();
 
-		$slug = str_random(180);
-		$id = \DB::table('imagen_depots')->where('slug', $slug)->get();
+			$newName = str_random(100);
+			$guessFileExtension = $file->guessExtension();
+			$path = $file->move('img', $newName . '.' . $guessFileExtension);
 
-		$name = $file->getClientOriginalName();
-		$path = $file->move('img', $name);
+			if (!$id) {
+				Session::flash('mensaje_errors', '');
+				return view('prensa.fotografias.index');
+			} else {
 
-		if (!$id) {
-			return 0;
+				$insertid = \DB::table('imagen_depots')->insertGetId(
+					['path' => $path, 'type_id' => 12, 'status' => 0, 'slug' => $slug]);
+				Session::flash('mensaje_success', 'Sus datos fueron guardados correctametne');
+				return view('prensa.fotografias.index');
+			}
+
 		} else {
 
-			$insertid = \DB::table('imagen_depots')->insertGetId(
-				['path' => $path, 'type_id' => 12, 'status' => 12, 'slug' => $slug]);
-
-			return $insertid;
 		}
-		/*
-			        $insertid = DB::table('imagen_depots')->insert(
-						['path' => $path, 'type_id' => 0, 'status' => 0]
-		*/
-
-		//return $file->getClientOriginalName();
-
-		//return $slug;
 
 	}
 
