@@ -25,6 +25,7 @@
                           <div class="form-group" >
                              <p>Fotografia Elegida</p>
                              <br>
+
                               <div class="form-group">
 
                                     {{ csrf_field() }}

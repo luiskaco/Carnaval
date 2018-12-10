@@ -24,6 +24,17 @@ class EntrevistaController extends Controller {
 		//
 	}
 
+	public function addFile($file) {
+		if ($file->guessExtension() == 'jpeg' || $file->guessExtension() == 'png') {
+			$newName = str_random(100); // crea nuevo nombre
+			$guessFileExtension = $file->guessExtension();
+			$path = $file->move('img', $newName . '.' . $guessFileExtension);
+			return $path;
+		} else {
+			return 0;
+		}
+	}
+
 	/**
 	 * Store a newly created resource in storage.
 	 *
@@ -32,6 +43,18 @@ class EntrevistaController extends Controller {
 	 */
 	public function store(Request $request) {
 		//
+
+		//return view('prensa.fotografias.index');
+
+		if ($request->file('f_secundaria')) {
+			$path_principal = $this->addFile($request->file('f_principal'));
+			$path_secundaria = $this->addFile($request->file('f_secundaria'));
+			$title_entre = $request->input('title_entre');
+
+			return $title_entre;
+		} else {
+			return view('prensa.entrevista.index');}
+
 	}
 
 	/**
@@ -74,4 +97,5 @@ class EntrevistaController extends Controller {
 	public function destroy($id) {
 		//
 	}
+
 }

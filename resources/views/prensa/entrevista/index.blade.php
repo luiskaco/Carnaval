@@ -8,12 +8,12 @@
 
               <div class="box box-primary">
                     <div class="box-header with-border">
-                      <form class="contact100-form validate-form">
+                      <form class="contact100-form validate-form" enctype="multipart/form-data" action="{{ route('admin.entrevista.store') }} " method="post"  id="avatarForm">
                         <h3 class="box-title" align="center">Agregar Nueva Entrevista</h3>
                         <hr>
                         <div class="wrap-input100 validate-input bg1 rs1-wrap-input101" data-validate="">
                                 <span class="label-input100"><h5>Título de la entrevista<h5></span>
-                            <input class="input100" type="text" name="name" placeholder="Escriba el título de la entrevista">
+                            <input class="input100" type="text" name="title_entre" placeholder="Escriba el título de la entrevista">
                         </div>
 
                       <div class="wrap-input100 bg1 ">
@@ -28,7 +28,7 @@
                               </div>
                               <div class="col-md-4">
                                 <div class="radio">
-                                <label><input type="radio" name="optradio" id="PI">Portada Principal y URL</label>
+                                <label><input type="radio" name="optradio" id="PI" >Portada Principal y URL</label>
                               </div>
                               </div>
                             </div>
@@ -41,8 +41,9 @@
                           <div class="form-group" >
                              <p>Portada Principal</p>
                              <br>
+                              {{ csrf_field() }}
                               <div class="form-group">
-                                  <input id="file-3" type="file" multiple=true>
+                                  <input id="file-3" type="file" multiple=true name="f_principal">
                               </div>
                             </div>
                           </div>
@@ -50,12 +51,12 @@
                             <div class="form-group" id="imgA">
                                 <p>Imagen Adicional</p>
                                 <div class="form-group">
-                                    <input id="file-4" type="file" multiple=true>
+                                    <input id="file-4" type="file" multiple=true name = "f_secundaria">
                                 </div>
                             </div>
                             <div class="input-group" id="urlA" style="display: none">
                               <span class="input-group-addon">Pegar aquí el URL</span>
-                              <input id="msg" type="text" class="form-control" name="msg" placeholder="URL de la entrevista">
+                              <input id="msg" type="text" class="form-control" name="msg" placeholder="URL de la entrevista" >
                             </div>
                         </div>
 
@@ -63,29 +64,58 @@
                       </div>
                        <div class="wrap-input100 validate-input bg0 rs1-alert-validate" data-validate = "Please Type Your Message">
                           <span class="label-input100"><h5>Describir la entrevista</h5></span>
-
-                          <textarea class="input100"id="editor1" name="message" placeholder="Escribir aqui la entrevista">
+                          <br>
+                           <textarea class="input100"id="editor1" name="message" placeholder="Escribir aqui la entrevista">
 
                           </textarea>
 
                         </div>
-                       <div class="wrap-input100 validate-input bg1" style="width: 100%" data-validate = "Please Type Your Name">
-                          <span class="label-input100"><h5>Seleccione fecha<h5></span>
+
+
+                       <div class="wrap-input100 validate-input bg1 rs1-wrap-input100" style="width: 100%" data-validate = "Please Type Your Name">
+
+                         <div class="row">
+                           <div class="col-md-3">
+                             <span class="label-input100"><h5>Seleccione Fecha<h5></span>
                           <hr>
                           <div class="form-group">
                               <div class="input-group date">
                                 <div class="input-group-addon">
                                   <i class="fa fa-calendar"></i>
                                 </div>
-                                <input type="text" class="form-control pull-left" id="datepicker">
+                                <input type="text" class="form-control pull-left" id="datepicker" name ="f_date">
                               </div>
                               <!-- /.input group -->
                             </div>
+                           </div>
+
+                           <div class="col-md-9">
+                             <span class="label-input100"><h5>Seleccione Tres Palabras claves<h5></span>
+                              <hr>
+                              <div class="form-group">
+                              <div class="row">
+                                <div class="col-md-4">
+                                   <input class="form-control" id="focusedInput" type="text" value="" name="keyword1">
+                                </div>
+                                <div class="col-md-4">
+                                   <input class="form-control" id="focusedInput" type="text" value="" name="keyword2" >
+                                </div>
+                                <div class="col-md-4">
+                                   <input class="form-control" id="focusedInput" type="text" value="" name="keyword3">
+                                </div>
+                              </div>
+
+                            </div>
+                           </div>
+                         </div>
+
                         </div>
 
 
-                          <div class="container-contact100-form-btn">
-                            <button class="contact100-form-btn">
+
+
+                          <div class="container-contact100-form-btn rs1-wrap-input100">
+                            <button class="contact100-form-btn" type="submit">
                               <span>
                                 Publicar Entrevista
                                 <i class="fa fa-long-arrow-right m-l-7" aria-hidden="true"></i>
