@@ -19,4 +19,8 @@ class Press extends Model {
 		return $this->belongsTo(ImagenDepot::class, 'url_content_id');
 	}
 
+	public function keyword_link() {
+		return $this->belongsTo(Keyword::class, 'keyword_id');
+	}
+
 }

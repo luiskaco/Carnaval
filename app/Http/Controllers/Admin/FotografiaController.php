@@ -32,6 +32,33 @@ class FotografiaController extends Controller {
 	 */
 	public function store(Request $request) {
 		//
+
+		$file = $request->file('file');
+
+		$slug = str_random(180);
+		$id = \DB::table('imagen_depots')->where('slug', $slug)->get();
+
+		$name = $file->getClientOriginalName();
+		$path = $file->move('img', $name);
+
+		if (!$id) {
+			return 0;
+		} else {
+
+			$insertid = \DB::table('imagen_depots')->insertGetId(
+				['path' => $path, 'type_id' => 12, 'status' => 12, 'slug' => $slug]);
+
+			return $insertid;
+		}
+		/*
+			        $insertid = DB::table('imagen_depots')->insert(
+						['path' => $path, 'type_id' => 0, 'status' => 0]
+		*/
+
+		//return $file->getClientOriginalName();
+
+		//return $slug;
+
 	}
 
 	/**
@@ -73,5 +100,28 @@ class FotografiaController extends Controller {
 	 */
 	public function destroy($id) {
 		//
+	}
+
+	public function addUser(Request $request) {
+
+		$path = $request->input('path2');
+		$type_id = $request->input('type_id');
+		$status = $request->input('status');
+
+		$data = array('path' => $path, "type_id" => $type_id, "status" => $status, 'slug' => "jkkj");
+
+		// Call insertData() method of Page Model
+		$value = ImagenDepot::insertData($data);
+		if ($value) {
+			echo $value;
+		} else {
+			echo 0;
+		}
+
+		exit;
+	}
+
+	public function saveFile(Request $request) {
+
 	}
 }

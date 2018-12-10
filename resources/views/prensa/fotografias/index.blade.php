@@ -12,7 +12,7 @@
               <!-- Formulario -->
               <div class="box box-primary">
                     <div class="box-header with-border">
-                      <form class="contact100-form validate-form">
+                      <form class="contact100-form validate-form" enctype="multipart/form-data" action="{{ route('admin.fotografia.store') }}  " method="post"  id="avatarForm">
                         <h3 class="box-title" align="center">Agregar Nueva Fotografia</h3>
                         <hr>
                       <div class="wrap-input100 bg1 ">
@@ -25,7 +25,10 @@
                              <p>Fotografia Elegida</p>
                              <br>
                               <div class="form-group">
-                                  <input id="file-3" type="file" multiple=true>
+
+                                    {{ csrf_field() }}
+                                  <input id="file-3"  name='file' type="file" id="avatarInput" multiple=true>
+
                               </div>
                             </div>
                           </div>
@@ -41,7 +44,7 @@
                                 <div class="input-group-addon">
                                   <i class="fa fa-calendar"></i>
                                 </div>
-                                <input type="text" class="form-control pull-left" id="datepicker">
+                                <input type="text" name='calendar' class="form-control pull-left" id="datepicker">
                               </div>
                               <!-- /.input group -->
                             </div>
@@ -49,7 +52,7 @@
 
 
                           <div class="container-contact100-form-btn">
-                            <button class="contact100-form-btn">
+                            <button type="submit" class="contact100-form-btn" id="but">
                               <span>
                                 Publicar Fotografia
                                 <i class="fa fa-long-arrow-right m-l-7" aria-hidden="true"></i>
@@ -100,4 +103,32 @@
     $('#urlA').css('display','block');
    });
   </script>
-@endsection
+
+
+
+
+<script type="text/javascript">
+
+
+
+    $(function () {
+        //Enviar el formulario via FormData
+            var data = new FormData($('#avatarForm')[0]);
+            console.log(data);
+
+            $.ajax( {
+                url: {{ route('admin.noticias.store') }},
+                type: 'POST',
+                data: data,
+                processData: false,
+                contentType: false
+            }).done(function(datos){
+                console.log(datos);
+            });
+    });
+  </script>
+
+
+
+
+  @endsection

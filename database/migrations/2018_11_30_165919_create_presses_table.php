@@ -27,6 +27,8 @@ class CreatePressesTable extends Migration {
 
 			$table->integer('status');
 			$table->text('url_string')->nullable(true);
+
+			$table->date('publish');
 		});
 	}
 

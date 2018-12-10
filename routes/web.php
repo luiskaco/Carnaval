@@ -83,7 +83,10 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'admin', 'as' => 'admin.'], 
 	Route::resource('comunicados', 'Admin\ComunicadosController');
 	Route::resource('noticias', 'Admin\NoticiasController');
 	Route::resource('entrevista', 'Admin\EntrevistaController');
+
+	Route::post('saveFile/{request)}', 'Admin\FotografiaController@saveFile');
 	Route::resource('fotografia', 'Admin\FotografiaController');
+
 	Route::resource('videos', 'Admin\VideosController');
 	Route::resource('noticiassearch', 'Admin\NoticasSearchController');
 	Route::resource('comunicadosearch', 'Admin\ComunicadoSearchController');

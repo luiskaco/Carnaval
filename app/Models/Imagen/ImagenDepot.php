@@ -11,4 +11,16 @@ class ImagenDepot extends Model {
 		'path', 'slug', 'type_id', 'status',
 	];
 
+	public static function insertData($data) {
+
+		$value = DB::table('imagen_depots')->where('path', $data['path'])->get();
+		if ($value->count() == 0) {
+			$insertid = DB::table('imagen_depots')->insertGetId($data);
+			return $insertid;
+		} else {
+			return 0;
+		}
+
+	}
+
 }

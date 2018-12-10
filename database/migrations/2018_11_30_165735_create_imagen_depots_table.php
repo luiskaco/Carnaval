@@ -18,6 +18,7 @@ class CreateImagenDepotsTable extends Migration {
 			$table->integer('type_id');
 			$table->timestamps();
 			$table->integer('status')->default(0);
+
 		});
 	}
 
