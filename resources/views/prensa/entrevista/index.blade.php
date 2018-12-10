@@ -3,12 +3,23 @@
 @extends('layouts.app')
 
 @section('content')
+@include('errors.flash')
+@include('errors.request')
     <!-- Main content -->
     <section class="content">
 
               <div class="box box-primary">
                     <div class="box-header with-border">
+<<<<<<< HEAD
                       <form class="contact100-form validate-form" enctype="multipart/form-data" action="{{ route('admin.entrevista.store') }} " method="post"  id="avatarForm">
+=======
+                      <form class="contact100-form validate-form" >
+
+                      {!! Form::open(['route'=>'admin.entrevista.store', 'method'=>'POST',"class"=>"form form-id",'files' => true, 'id'=>'form-id']) !!}
+                      {!! Form::token() !!}
+
+
+>>>>>>> 953b97283e0c5d941b2c90760fb8fc8deee9a431
                         <h3 class="box-title" align="center">Agregar Nueva Entrevista</h3>
                         <hr>
                         <div class="wrap-input100 validate-input bg1 rs1-wrap-input101" data-validate="">
@@ -122,7 +133,7 @@
                               </span>
                             </button>
                           </div>
-                      </form>
+                       {!! Form::close() !!}
                     </div>
                   </div>
 
@@ -141,6 +152,8 @@
   <script type="text/javascript">
 
     $(function () {
+
+         $('div.alert').not('.alert-important').delay(3000).fadeOut(350);
 
         date= new Date;
 

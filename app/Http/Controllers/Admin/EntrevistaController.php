@@ -12,7 +12,7 @@ class EntrevistaController extends Controller {
 	 * @return \Illuminate\Http\Response
 	 */
 	public function index() {
-		return view('prensa.entrevista.index');
+
 	}
 
 	/**
@@ -21,7 +21,7 @@ class EntrevistaController extends Controller {
 	 * @return \Illuminate\Http\Response
 	 */
 	public function create() {
-		//
+		return view('prensa.entrevista.index');
 	}
 
 	public function addFile($file) {
