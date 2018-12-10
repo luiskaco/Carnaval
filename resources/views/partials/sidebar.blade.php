@@ -27,6 +27,22 @@
                             <i class="fa fa-briefcase"></i>
                             <span class="title">Entrevista</span>
                         </a>
+                        <ul class="treeview-menu">
+
+                            <li class="{{ $request->segment(2) == 'entrevista' ? 'active active-sub' : '' }}">
+                                <a href="{{ route('admin.comunicados.index') }}">
+                                    <i class="fa fa-briefcase"></i>
+                                    <span class="title">Agregar</span>
+                                </a>
+                            </li>
+                             <li class="{{ $request->segment(2) == 'entrevista' ? 'active active-sub' : '' }}">
+                                <a href="{{ route('admin.comunicadosearch.index') }}">
+                                    <i class="fa fa-briefcase"></i>
+                                    <span class="title">Consultar</span>
+                                </a>
+                            </li>
+                        </ul>
+
                     </li>
 
                     <li class="treeview">
@@ -42,21 +58,17 @@
                             <li class="{{ $request->segment(2) == 'comunicados' ? 'active active-sub' : '' }}">
                                 <a href="{{ route('admin.comunicados.index') }}">
                                     <i class="fa fa-briefcase"></i>
-                                    <span class="title">Agregar nuevo Comunicado</span>
+                                    <span class="title">Agregar</span>
                                 </a>
                             </li>
                              <li class="{{ $request->segment(2) == 'comunicadosearch' ? 'active active-sub' : '' }}">
                                 <a href="{{ route('admin.comunicadosearch.index') }}">
                                     <i class="fa fa-briefcase"></i>
-                                    <span class="title">Comunicados Registrados</span>
+                                    <span class="title">Consultar</span>
                                 </a>
                             </li>
                         </ul>
                     </li>
-
-
-
-
                     <li class="treeview">
                         <a href="#">
                             <i class="fa fa-users"></i>
@@ -70,13 +82,13 @@
                             <li class="{{ $request->segment(2) == 'noticias' ? 'active active-sub' : '' }}">
                                 <a href="{{ route('admin.noticias.index') }}">
                                     <i class="fa fa-briefcase"></i>
-                                    <span class="title">Agregar nueva noticia</span>
+                                    <span class="title">Agregar</span>
                                 </a>
                             </li>
                              <li class="{{ $request->segment(2) == 'noticiassearch' ? 'active active-sub' : '' }}">
                                 <a href="{{ route('admin.noticiassearch.index') }}">
                                     <i class="fa fa-briefcase"></i>
-                                    <span class="title">Noticias Ingresadas</span>
+                                    <span class="title">Consultar</span>
                                 </a>
                             </li>
                         </ul>

@@ -21,7 +21,13 @@ class NoticiasController extends Controller {
 	 * @return \Illuminate\Http\Response
 	 */
 	public function create() {
-		//
+				//$userRole->detachRole($role);
+			Session::flash('mensaje_success', 'Sus datos fueron guardados correctametne');
+			return redirect('admin/users');
+		} catch (\Exception $e) {
+			Session::flash('mensaje_errors', 'Sus datos no pueden ser procesados correctamente');
+			return back()->withInput();
+		}/
 	}
 
 	/**

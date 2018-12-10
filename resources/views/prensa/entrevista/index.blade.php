@@ -6,10 +6,6 @@
     <!-- Main content -->
     <section class="content">
 
-        <!-- left column -->
-
-
-              <!-- Formulario -->
               <div class="box box-primary">
                     <div class="box-header with-border">
                       <form class="contact100-form validate-form">
@@ -67,7 +63,11 @@
                       </div>
                        <div class="wrap-input100 validate-input bg0 rs1-alert-validate" data-validate = "Please Type Your Message">
                           <span class="label-input100"><h5>Describir la entrevista</h5></span>
-                          <textarea class="input100" name="message" placeholder="Escribir aqui la entrevista"></textarea>
+
+                          <textarea class="input100"id="editor1" name="message" placeholder="Escribir aqui la entrevista">
+
+                          </textarea>
+
                         </div>
                        <div class="wrap-input100 validate-input bg1" style="width: 100%" data-validate = "Please Type Your Name">
                           <span class="label-input100"><h5>Seleccione fecha<h5></span>
@@ -101,39 +101,48 @@
 
 @section('javascript')
 
-    <script src="{{ url('adminlte/js/fileinput.min.js') }}"></script>
-    <script src="{{ url('adminlte/js/fileinput.js') }}"></script>
+  <script src="{{ url('adminlte/js/fileinput.min.js') }}"></script>
+  <script src="{{ url('adminlte/js/fileinput.js') }}"></script>
 
-    <script src="{{ url('adminlte/js/bootstrap-datepicker.min.js') }}"></script>
+  <script src="{{ url('adminlte/js/bootstrap-datepicker.min.js') }}"></script>
+  <!-- CkEditor -->
+  <script src="{{ url('carnaval/plugin/ckeditor/ckeditor.js') }}"></script>
+
   <script type="text/javascript">
 
     $(function () {
-      $('#datepicker').datepicker({
-      autoclose: true
-       });
 
-    })
-  </script>
+        date= new Date;
 
-  <script>
-  $("#file-3").fileinput({
-    showCaption: false,
-    browseClass: "btn btn-primary btn-lg",
-    fileType: "any"
-  });
-   $("#file-4").fileinput({
-    showCaption: false,
-    browseClass: "btn btn-primary btn-lg",
-    fileType: "any"
-  });
+         $('#datepicker').datepicker({
+               autoclose: true,minDate:  date
+         });
 
-   $("#PU").click(function() {
-    $('#urlA').css('display','none');
-    $('#imgA').css('display','block');
-   });
-   $("#PI").click(function() {
-    $('#imgA').css('display','none');
-    $('#urlA').css('display','block');
-   });
+        CKEDITOR.replace('editor1');
+
+
+        $("#file-3").fileinput({
+            showCaption: false,
+            browseClass: "btn btn-primary btn-lg",
+            fileType: "any"
+        });
+        $("#file-4").fileinput({
+            showCaption: false,
+            browseClass: "btn btn-primary btn-lg",
+            fileType: "any"
+         });
+         $("#PU").click(function() {
+            $('#urlA').css('display','none');
+            $('#imgA').css('display','block');
+         });
+         $("#PI").click(function() {
+            $('#imgA').css('display','none');
+            $('#urlA').css('display','block');
+         });
+
+
+    });
+
+
   </script>
 @endsection
