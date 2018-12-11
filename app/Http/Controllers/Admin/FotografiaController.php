@@ -38,24 +38,25 @@ class FotografiaController extends Controller {
 			$slug = str_random(180);
 			$id = \DB::table('imagen_depots')->where('slug', $slug)->get();
 
+			$date = date_create($request->input('calendar'));
+			$f_date = date_format($date, "Y/m/d");
+
 			$newName = str_random(100);
 			$guessFileExtension = $file->guessExtension();
 			$path = $file->move('img', $newName . '.' . $guessFileExtension);
 
 			if (!$id) {
 				Session::flash('mensaje_errors', '');
-				return view('prensa.fotografias.index');
+
 			} else {
 
 				$insertid = \DB::table('imagen_depots')->insertGetId(
-					['path' => $path, 'type_id' => 12, 'status' => 0, 'slug' => $slug]);
+					['path' => $path, 'type_id' => 0, 'status' => 0, 'created_at' => $f_date, 'slug' => $slug]);
 				Session::flash('mensaje_success', 'Sus datos fueron guardados correctametne');
-				return view('prensa.fotografias.index');
 			}
-
-		} else {
-
 		}
+
+		return view('prensa.fotografias.index');
 
 	}
 

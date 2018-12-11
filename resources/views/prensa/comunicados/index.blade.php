@@ -1,19 +1,36 @@
 
+
 @inject('request', 'Illuminate\Http\Request')
 @extends('layouts.app')
 
 @section('content')
+
+    @include('errors.request')
+    @include('errors.flash')
+
+
+
     <!-- Main content -->
+
     <section class="content">
 
               <div class="box box-primary">
-                    <div class="box-header with-border">
-                      <form class="contact100-form validate-form">
+                    <div class="box-header with-border" >
+
+                      <form class="contact100-form validate-form" enctype="multipart/form-data" action="{{ route('admin.comunicados.store') }} " method="post"  id="avatarForm">
+
+                      <form class="contact100-form validate-form"  enctype="multipart/form-data">
+
+                      {!! Form::open(['route'=>'admin.comunicados.store', 'method'=>'POST',"class"=>"form form-id",'files' => true, 'id'=>'form-id']) !!}
+                      {!! Form::token() !!}
+
+
+
                         <h3 class="box-title" align="center">Agregar Nuevo Comunicado</h3>
                         <hr>
                         <div class="wrap-input100 validate-input bg1 rs1-wrap-input101" data-validate="">
-                                <span class="label-input100"><h5>Título del comunicado<h5></span>
-                            <input class="input100" type="text" name="name" placeholder="Escriba el título del comunicado">
+                                <span class="label-input100"><h5>Título del Comunicado<h5></span>
+                            <input class="input100" type="text" name="title_entre" placeholder="Escriba el título del comunicado">
                         </div>
 
                       <div class="wrap-input100 bg1 ">
@@ -28,7 +45,7 @@
                               </div>
                               <div class="col-md-4">
                                 <div class="radio">
-                                <label><input type="radio" name="optradio" id="PI">Portada Principal y URL</label>
+                                <label><input type="radio" name="optradio" id="PI" >Portada Principal y URL</label>
                               </div>
                               </div>
                             </div>
@@ -41,22 +58,22 @@
                           <div class="form-group" >
                              <p>Portada Principal</p>
                              <br>
+                              {{ csrf_field() }}
                               <div class="form-group">
-                                  <input id="file-3" type="file" multiple=true>
+                                  <input id="file-3" type="file" multiple=true name="f_principal">
                               </div>
                             </div>
                           </div>
                           <div class="col-md-6">
                             <div class="form-group" id="imgA">
                                 <p>Imagen Adicional</p>
-                                <br>
                                 <div class="form-group">
-                                    <input id="file-4" type="file" multiple=true>
+                                    <input id="file-4" type="file" multiple=true name = "f_secundaria">
                                 </div>
                             </div>
                             <div class="input-group" id="urlA" style="display: none">
                               <span class="input-group-addon">Pegar aquí el URL</span>
-                              <input id="msg" type="text" class="form-control" name="msg" placeholder="URL de la entrevista">
+                              <input id="msg" type="text" class="form-control" name="msg" placeholder="URL del comunicado" >
                             </div>
                         </div>
 
@@ -65,7 +82,7 @@
                        <div class="wrap-input100 validate-input bg0 rs1-alert-validate" data-validate = "Please Type Your Message">
                           <span class="label-input100"><h5>Describir el comunicado</h5></span>
                           <br>
-                           <textarea class="input100"id="editor1" name="message" placeholder="Escribir aqui la entrevista">
+                           <textarea class="input100"id="editor1" name="message" placeholder="Escribir aqui el comunicado">
 
                           </textarea>
 
@@ -83,7 +100,7 @@
                                 <div class="input-group-addon">
                                   <i class="fa fa-calendar"></i>
                                 </div>
-                                <input type="text" class="form-control pull-left" id="datepicker">
+                                <input type="text" class="form-control pull-left" id="datepicker" name ="f_date">
                               </div>
                               <!-- /.input group -->
                             </div>
@@ -95,13 +112,13 @@
                               <div class="form-group">
                               <div class="row">
                                 <div class="col-md-4">
-                                   <input class="form-control" id="focusedInput" type="text" value="">
+                                   <input class="form-control" id="focusedInput" type="text" value="" name="keyword1">
                                 </div>
                                 <div class="col-md-4">
-                                   <input class="form-control" id="focusedInput" type="text" value="">
+                                   <input class="form-control" id="focusedInput" type="text" value="" name="keyword2" >
                                 </div>
                                 <div class="col-md-4">
-                                   <input class="form-control" id="focusedInput" type="text" value="">
+                                   <input class="form-control" id="focusedInput" type="text" value="" name="keyword3">
                                 </div>
                               </div>
 
@@ -115,14 +132,14 @@
 
 
                           <div class="container-contact100-form-btn rs1-wrap-input100">
-                            <button class="contact100-form-btn">
+                            <button class="contact100-form-btn" type="submit">
                               <span>
-                                Publicar Entrevista
+                                Publicar Comunicado
                                 <i class="fa fa-long-arrow-right m-l-7" aria-hidden="true"></i>
                               </span>
                             </button>
                           </div>
-                      </form>
+                       {!! Form::close() !!}
                     </div>
                   </div>
 
@@ -141,6 +158,8 @@
   <script type="text/javascript">
 
     $(function () {
+
+         $('div.alert').not('.alert-important').delay(3000).fadeOut(350);
 
         date= new Date;
 
@@ -170,6 +189,7 @@
             $('#urlA').css('display','block');
          });
 
+         $("#destiny").hide(7000);
 
     });
 

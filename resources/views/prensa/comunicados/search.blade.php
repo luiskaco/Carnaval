@@ -51,10 +51,10 @@
 
        <div class="row" style="display: none" id="formu">
          <div class="col-md-3"></div>
-         <div class="col-md-4" style="display: none" id="bTitulo">
-           <input class="form-control" type="text" placeholder="Escribir titulo del comunicado a buscar" aria-label="Buscar" >
+         <div class="col-md-4" style="display:none" id="bTitulo">
+           <input class="form-control" type="text" placeholder="Escribir titulo del comunicado a buscar" aria-label="Buscar" id='title_p'>
          </div>
-         <div class="col-md-4" style="display: none" id="bDate" >
+         <div class="col-md-4" style="display:none" id="bDate" >
                  <div class="input-group date">
                                 <div class="input-group-addon">
                                   <i class="fa fa-calendar"></i>
@@ -63,34 +63,27 @@
                               </div>
                 </div>
          <div class="col-md-2">
-                <button type="button" class="btn btn-success">Buscar</button>
+                <button type="button" class="btn btn-success" id="but">Buscar</button>
          </div>
        </div>
 
 
 
             <div class="box-body">
-              <table id="example1" class="table table-bordered table-striped">
+              <table id="table" class="table table-bordered table-striped  dt-select">
                 <thead>
-                <tr>
-                  <th>N°</th>
-                  <th>Título de Comunicado</th>
-                  <th>Fecha</th>
-                  <th>Activo</th>
-                </tr>
+                    <tr>
+                        <th style="text-align:center;"></th>
+                        <th>Título de Comunicado</th>
+                        <th>Fecha</th>
+
+                    </tr>
                 </thead>
+
                 <tbody>
 
-
-                <tr>
-                  <td></td>
-                  <td>
-                  </td>
-                  <td></td>
-                  <td> <button type="button" class="btn btn-primary">Activado</button> </td>
-                </tr>
                 </tbody>
-              </table>
+            </table>
             </div>
             <!-- /.box-body -->
           </div>
@@ -143,5 +136,49 @@
             }
           });
     });
+  </script>
+
+  <script type="text/javascript">
+
+     vurl='{{ route('admin.comunicadosearch.create')}}';
+
+      var greet = function(vurl,data1) {
+         $('#table').DataTable({
+                        processing: true,
+                        serverSide: true,
+                        ajax:{
+                            url:vurl ,
+                            type:'get',
+                            data:{'data1' : data1},
+                        } ,
+                         language: {
+                            url: '//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Spanish.json'
+                         },
+                        columns: [
+                            {data: 'id', name:'id','orderable': false},
+                            {data: 'title', name:'title'},
+                            {data: 'publish', name:'publish'},
+                        ],
+                        bAutoWidth: false,
+                        order: [[0, 'asc']],
+                        'aaSorting': [],
+
+
+                    });
+
+         };
+
+         greet(vurl,0);
+
+
+    $('#but').click(function () {
+           table_data.ajax.reload();
+           var title = $('title_p').val();
+           vurl='{{ route('admin.comunicadosearch.store')}}';
+           greet(vurl,title);
+           alert("hola2");
+        });
+
+
   </script>
 @endsection

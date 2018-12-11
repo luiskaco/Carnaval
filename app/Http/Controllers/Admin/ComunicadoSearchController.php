@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class ComunicadoSearchController extends Controller {
 	/**
@@ -22,6 +23,21 @@ class ComunicadoSearchController extends Controller {
 	 */
 	public function create() {
 		//
+
+		$register = DB::table('presses')->where('type_id', 0)->get();
+		$con = 1;
+		return datatables($register)
+			->addColumn('id', function ($val) use (&$con) {
+
+				return $con++;
+			})
+			->addColumn('title', function ($val) {
+				return ucfirst(strtolower($val->title));
+			})
+			->addColumn('publish', function ($val) {
+				return $val->publish;
+			})
+			->make(true);
 	}
 
 	/**
@@ -32,6 +48,21 @@ class ComunicadoSearchController extends Controller {
 	 */
 	public function store(Request $request) {
 		//
+
+		$register = DB::table('presses')->where('title', $request->input('dato1'))->get();
+		$con = 1;
+		return datatables($register)
+			->addColumn('id', function ($val) use (&$con) {
+
+				return $con++;
+			})
+			->addColumn('title', function ($val) {
+				return ucfirst(strtolower($val->title));
+			})
+			->addColumn('publish', function ($val) {
+				return $val->publish;
+			})
+			->make(true);
 	}
 
 	/**
@@ -42,6 +73,7 @@ class ComunicadoSearchController extends Controller {
 	 */
 	public function show($id) {
 		//
+
 	}
 
 	/**

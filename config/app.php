@@ -192,6 +192,8 @@ return [
 		App\Providers\RouteServiceProvider::class,
 		Spatie\Permission\PermissionServiceProvider::class,
 		HieuLe\Active\ActiveServiceProvider::class,
+		#datatble
+		Yajra\DataTables\DataTablesServiceProvider::class,
 
 	],
 
@@ -249,6 +251,7 @@ return [
 		'Html' => Collective\Html\HtmlFacade::class,
 
 		'Active' => HieuLe\Active\Facades\Active::class,
+		'DataTables' => Yajra\DataTables\Facades\DataTables::class,
 
 	],
 

@@ -4,6 +4,9 @@
 @extends('layouts.app')
 
 @section('content')
+
+    @include('errors.request')
+    @include('errors.flash')
     <!-- Main content -->
     <section class="content">
 
@@ -13,7 +16,13 @@
               <!-- Formulario -->
               <div class="box box-primary">
                     <div class="box-header with-border">
-                      <form class="contact100-form validate-form">
+                      <form class="contact100-form validate-form" enctype="multipart/form-data" action="{{ route('admin.videos.store') }} " method="post"  id="avatarForm">
+
+                      <form class="contact100-form validate-form"  enctype="multipart/form-data">
+
+                      {!! Form::open(['route'=>'admin.videos.store', 'method'=>'POST',"class"=>"form form-id",'files' => true, 'id'=>'form-id']) !!}
+                      {!! Form::token() !!}
+
                         <h3 class="box-title" align="center">Agregar Nuevo Video</h3>
                         <hr>
 
@@ -42,8 +51,9 @@
                           <div class="form-group" >
                              <p>Portada Principal</p>
                              <br>
+                             {{ csrf_field() }}
                               <div class="form-group">
-                                  <input id="file-3" type="file" multiple=true>
+                                  <input id="file-3" type="file" multiple=true name="f_principal">
                               </div>
                             </div>
                           </div>
@@ -51,7 +61,7 @@
                             <div class="form-group" id="imgA">
                                 <p>Imagen Adicional</p>
                                 <div class="form-group">
-                                    <input id="file-4" type="file" multiple=true>
+                                    <input id="file-4" type="file" multiple=true name = "f_secundaria">
                                 </div>
                             </div>
                             <div class="input-group" id="urlA" style="display: none">
@@ -70,7 +80,7 @@
                                 <div class="input-group-addon">
                                   <i class="fa fa-calendar"></i>
                                 </div>
-                                <input type="text" class="form-control pull-left" id="datepicker">
+                                <input type="text" class="form-control pull-left" id="datepicker" name ="f_date">
                               </div>
                               <!-- /.input group -->
                             </div>
@@ -108,25 +118,39 @@
     })
   </script>
 
-  <script>
-  $("#file-3").fileinput({
-    showCaption: false,
-    browseClass: "btn btn-primary btn-lg",
-    fileType: "any"
-  });
-   $("#file-4").fileinput({
-    showCaption: false,
-    browseClass: "btn btn-primary btn-lg",
-    fileType: "any"
-  });
+<script type="text/javascript">
 
-   $("#PU").click(function() {
-    $('#urlA').css('display','none');
-    $('#imgA').css('display','block');
-   });
-   $("#PI").click(function() {
-    $('#imgA').css('display','none');
-    $('#urlA').css('display','block');
-   });
+    $(function () {
+
+         $('div.alert').not('.alert-important').delay(3000).fadeOut(350);
+
+
+
+
+        $("#file-3").fileinput({
+            showCaption: false,
+            browseClass: "btn btn-primary btn-lg",
+            fileType: "any"
+        });
+        $("#file-4").fileinput({
+            showCaption: false,
+            browseClass: "btn btn-primary btn-lg",
+            fileType: "any"
+         });
+         $("#PU").click(function() {
+            $('#urlA').css('display','none');
+            $('#imgA').css('display','block');
+         });
+         $("#PI").click(function() {
+            $('#imgA').css('display','none');
+            $('#urlA').css('display','block');
+         });
+
+         $("#destiny").hide(6000);
+
+    });
+
+
   </script>
+
 @endsection

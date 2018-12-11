@@ -46,3 +46,4 @@
 <link rel="stylesheet" type="text/css" href="{{ url('adminlte/css/cheak.css') }}">
 <link rel="stylesheet" type="text/css" href="{{ url('adminlte/css/fileinput.css') }}">
 <link rel="stylesheet" type="text/css" href="{{ url('adminlte/css/fileinput.min.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ url('carnaval/css/jquery.dataTables.min.css') }}">

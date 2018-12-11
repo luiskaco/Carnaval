@@ -23,11 +23,10 @@
                 <ul class="treeview-menu">
 
                     <li class="{{ $request->segment(2) == 'entrevista' ? 'active active-sub' : '' }}">
-<<<<<<< HEAD
+
                         <a href="#">
-=======
+
                         <a href="">
->>>>>>> 953b97283e0c5d941b2c90760fb8fc8deee9a431
                             <i class="fa fa-briefcase"></i>
                             <span class="title">Entrevista</span>
                             <span class="pull-right-container">
@@ -37,11 +36,11 @@
                         <ul class="treeview-menu">
 
                             <li class="{{ $request->segment(2) == 'entrevista' ? 'active active-sub' : '' }}">
-<<<<<<< HEAD
+
                                 <a href="{{ route('admin.entrevista.index') }}">
-=======
+
                                 <a href="{{ route('admin.entrevista.create') }}">
->>>>>>> 953b97283e0c5d941b2c90760fb8fc8deee9a431
+
                                     <i class="fa fa-briefcase"></i>
                                     <span class="title">Agregar</span>
                                 </a>

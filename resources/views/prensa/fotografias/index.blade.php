@@ -106,7 +106,7 @@
    });
 
 
-   $("#destiny").hide(7000);
+   $("#destiny").hide(6000);
 
   </script>
 

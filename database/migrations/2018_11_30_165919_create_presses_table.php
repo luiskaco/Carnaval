@@ -24,7 +24,7 @@ class CreatePressesTable extends Migration {
 			// tipo de prensa [ {'0', comunicados} , {'1',entrevistas} ,{'2',fotografias},{'3',noticias},{'4',videos}]
 			$table->integer('type_id');
 			$table->timestamps();
-
+			// 0 : activo , 1 : inactivo
 			$table->integer('status');
 			$table->text('url_string')->nullable(true);
 
