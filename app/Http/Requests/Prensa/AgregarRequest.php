@@ -22,11 +22,8 @@ class AgregarRequest extends FormRequest {
 	public function rules() {
 		return [
 			'title_entre' => 'required|max:255',
-			'f_secundaria' => 'image',
-			'f_principal' => 'image',
-			'msg' => 'url',
 			'f_date' => 'required|date',
-			'message' => 'required|max:255',
+			'message' => 'required|max:200',
 		];
 	}
 

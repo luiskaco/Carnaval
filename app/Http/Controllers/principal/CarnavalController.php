@@ -78,7 +78,8 @@ class CarnavalController extends Controller {
 	}
 
 	public function contenido($slug) {
-		return view('principal.contenido');
+		$template = self::template_noticia_principal($slug);
+		return view('principal.contenido', ['array' => $template]);
 
 	}
 
@@ -90,7 +91,7 @@ class CarnavalController extends Controller {
 		return view('principal.fotografia');
 	}
 	public function noticia() {
-		$template = self::template_noticias(Press::all());
+		$template = self::template_noticias();
 		return view('principal.noticia', ['template_comunicado' => $template]);
 	}
 	public function video() {
@@ -100,8 +101,24 @@ class CarnavalController extends Controller {
 		return view('principal.contacto');
 	}
 
+	/*Trait 2 */
+	public function template_noticia_principal($slug) {
+		$prees = Press::where('slug', $slug)->with('imagenDepotContent_link')->get();
+
+		$change = str_replace("\\", "/", $prees[0]->imagenDepotContent_link->path);
+		$url2 = url($change);
+
+		$array = array(
+			$prees[0]->title,
+			$url2,
+		);
+		//$template_comunicado = "<img class='blog-img-holder' src='" . $url2 . "' alt='Smiley face' class='img-responsive'>";
+		return $array;
+	}
 	/*Trait*/
-	public function template_noticias($val) {
+	public function template_noticias() {
+		$val = Press::where('type_id', 3)->get();
+
 		$contar_columna = 0;
 		//return ImagenDepot::all();
 		$template_comunicado = "<div class='row row-padded-mb'>";
@@ -113,10 +130,14 @@ class CarnavalController extends Controller {
 				$template_comunicado .= "<div class='row row-padded-mb'>";
 			}
 
+			$change = str_replace("\\", "/", $value->imagenDepotTitle_link->path);
+			$url2 = url($change);
+
 			$template_comunicado .= "
 				<div class='col-lg-4 col-md-4'>
 					<div class='fh5co-blog animate-box'>
-						<a href='#' class='blog-img-holder' style='background-image: url(http://placehold.it/500x300);'></a>
+					    <img class='blog-img-holder' src='" . $url2 . "' alt='Smiley face' height='500' width='100%'>
+
 						<div class='blog-text'>
 							<h3><a href='#'>" . $value->title . "</a></h3>
 							<!--<span class='posted_on'>Marzo. 15th</span>-->

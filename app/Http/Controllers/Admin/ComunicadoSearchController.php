@@ -53,7 +53,6 @@ class ComunicadoSearchController extends Controller {
 		$con = 1;
 		return datatables($register)
 			->addColumn('id', function ($val) use (&$con) {
-
 				return $con++;
 			})
 			->addColumn('title', function ($val) {

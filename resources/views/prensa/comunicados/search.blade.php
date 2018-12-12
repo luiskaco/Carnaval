@@ -140,7 +140,9 @@
 
   <script type="text/javascript">
 
-     vurl='{{ route('admin.comunicadosearch.create')}}';
+     var vurl='{{ route('admin.comunicadosearch.create')}}';
+      //$('#table').DataTable();
+
 
       var greet = function(vurl,data1) {
          $('#table').DataTable({
@@ -166,17 +168,20 @@
 
                     });
 
+
          };
 
          greet(vurl,0);
 
 
     $('#but').click(function () {
-           table_data.ajax.reload();
-           var title = $('title_p').val();
-           vurl='{{ route('admin.comunicadosearch.store')}}';
-           greet(vurl,title);
-           alert("hola2");
+          $('#table').dataTable().fnDestroy();
+
+          var title = $('title_p').val();
+          var vurl='{{ route('admin.comunicadosearch.store')}}';
+          greet(vurl,title);
+
+
         });
 
 

@@ -10,6 +10,9 @@
 		   			<div class="col-md-8 col-md-offset-2 text-center slider-text">
 		   				<div class="slider-text-inner">
 		   					<h1 class="heading-section">
+		   						  @php
+                   print_r($array[0]);
+				@endphp
 		   					</h1>
 
 		   				</div>
@@ -21,18 +24,21 @@
   	</div>
 </aside>
 @endsection
-@section('seccion_a')
+@section('content')
 <div id="fh5co-contact" style="background-image: url({{ url('carnaval/images/bg/st-2.png') }});">
 	<div class="container animate-box">
-		<div class="rows">
-			<div class="col-md-1"></div>
-			<div class="col-md-10">SECCION NOTICIA EN CONTRUCCIÓN</div>
-			<div class="col-md-1"></div>
+		 <div class="row text-center">
+
+              	<img src="@php
+                   print_r($array[1]);
+				@endphp" class="img-responsive">
+
+
 
 		</div>
 	</div>
 
 
 </div>
-@endsection
 
+@endsection
